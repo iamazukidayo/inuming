@@ -41,7 +41,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # protected
   def after_sign_up_path_for(resource)
     root_path
-  end 
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -62,9 +62,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:name])
-  end
 
+  
 end
