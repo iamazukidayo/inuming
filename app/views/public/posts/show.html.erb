@@ -1,1 +1,14 @@
-<h3>＊　投稿詳細画面　＊</h3>
+<div class="container">
+  <h3>＊　投稿詳細画面　＊</h3>
+<div class = "col-xs-6">
+
+<%= @post.user.name %>
+
+<%= image_tag @post.get_image(350, 300) %>
+
+<%= @post.title %>
+
+<%= @post.body %>
+
+<!--%= link_to "編集", edit_post_path(@post.id) class:'btn btn-sm btn-success' %>-->
+</div>
