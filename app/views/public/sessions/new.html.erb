@@ -5,7 +5,7 @@
 
       <h4>『　ログイン　』</h4>
 
-      <%= form_with model: @user, url: session_path(resource_name) do |f| %>
+      <%= form_with model: @user, url: user_session_path do |f| %>
 
       <table class="table">
         <tbody>
@@ -22,6 +22,9 @@
               <td><%= f.password_field :password, autocomplete: "current-password" %></td>
             </td>
           </tr>
+
+          
+
 
           <tr>
             <% if devise_mapping.rememberable? %>

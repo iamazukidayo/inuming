@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-lg-2 mt-5">
+
+      <h3>＊　投稿ページ　＊</h3>
+      <%= form_with model: Post.new do |f| %>
+
+
+      <table class = "table">
+        <tbody>
+
+          <tr>
+            <th>写真</th>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+
+
+          <tr>
+            <th>タイトル（犬種入力してください）</th>
+            <td><%= f.text_field :title %></td>
+          </tr>
+
+          <tr>
+            <th>説明</th>
+            <td><%= f.text_area :body %></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+        <%= f.submit "投稿", class: 'btn btn-sm btn-success' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

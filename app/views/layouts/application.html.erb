@@ -20,8 +20,13 @@
           <%= link_to root_path do %>
             <%= image_tag 'inuming.png', size: '180x125' %>
           <% end %>
-              <%= link_to "about", about_path, class: "btn btn-light" %>
-          </div>
+        </div>
+        <div class = "mt-5 mb-5 ml-5 row align-item-center">
+            <%= link_to "about", about_path, class: "btn btn-light" %>
+          <div class = "mr-3"></div>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+          <div class = "mr-3"></div>
+              <%= link_to "新規投稿", new_post_path, class: "btn btn-light" %>
 
         </div>
       </div>
