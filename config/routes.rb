@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     root :to =>"homes#top"
     get '/about' => "homes#about"
     resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update]
-  end
+    resources :users, only: [:edit, :show, :update]
+   end
 
 
 

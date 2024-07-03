@@ -27,8 +27,11 @@
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
           <div class = "mr-3"></div>
               <%= link_to "新規投稿", new_post_path, class: "btn btn-light" %>
+          <div class = "mr-3"></div>
+              <%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
+          <!--<div class = "mr-3"></div>-->
+              <!--%= link_to "マイページ", user_path(current_user), class: "btn btn-light" %>-->
 
-        </div>
       </div>
 
       </div>
@@ -43,3 +46,4 @@
     </footer>
   </body>
 </html>
+
