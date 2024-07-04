@@ -1,18 +1,18 @@
 class Public::UsersController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit, :update]
- 
+
  def show
    @user = User.find(params[:id])
    @posts = @user.posts
  end
- 
- 
+
+
   def edit
     @user = User.find(params[:id])
     if @user == current_user
       render :edit
     else
-      redirect_to root_path
+      redirect_to user_path(@user.id)
     end
   end
 
@@ -24,7 +24,7 @@ before_action :authenticate_user!, only: [:show, :edit, :update]
       render :edit
     end
   end
-  
+
   def out
     @user = User.find(current_user.id)
     @user.update(is_deleted: true)
