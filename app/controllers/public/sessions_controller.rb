@@ -18,24 +18,17 @@ class Public::SessionsController < Devise::SessionsController
   protected
   
   def reject_end_user
-    @end_user = EndUser.find_by(name: params[:user][:name])
-
-  if @user && @user.valid_password?(params[:user][:password])
-    if @user.is_active
-      sign_in(@user) 
-      redirect_to root_path
-    else
-      flash[:withdrawal_notice] = "退会済みです。再度ご登録をしてご利用ください。"
-      redirect_to new_user_registration_path
+    @end_user = EndUser.find_by(name: params[:end_user][:name])
+    if @end_user
+      if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_deleted == true)
+        flash[:end] = "退会済みです。再度ご登録をしてご利用ください"
+        redirect_to new_user_registration_path
+      else
+      # 該当するユーザが見つからない場合やパスワードが違う場合の処理
+        flash[:login_notice] = "メールアドレスまたはパスワードが正しくありません。"
+      end
     end
-  else
-    # 該当するユーザが見つからない場合やパスワードが違う場合の処理
-    flash[:login_notice] = "メールアドレスまたはパスワードが正しくありません。"
-    redirect_to new_user_session_path
   end
-  end
-
-end
 
 
 

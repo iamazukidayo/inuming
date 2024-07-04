@@ -53,11 +53,8 @@
 
              <div class="col-10 d-flex justify-content-end">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-              <div class = "col-1"></div>
               <%= link_to "新規投稿", new_post_path, class: "btn btn-light" %>
-              <div class = "col-1"></div>
               <%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
-              <div class = "col-1"></div>
               <%= link_to "マイページ", user_path(current_user), class: "btn btn-light" %>
               <div class = "col-1"></div>
             </div>
@@ -70,12 +67,10 @@
             </div>
             <div class="col-10 d-flex justify-content-end">
               <%= link_to "About", about_path, class: "btn btn-light" %>
-            <div class = "col-1" ></div>
               <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-light" %>
-            <div class = "col-1" ></div>
               <%= link_to "ログイン", user_session_path, class: "btn btn-light" %>
-            <div class = "col-1" ></div>
                   <!--%= link_to "ゲストログイン", new_customer_session_path, class: "btn btn-light" %>-->
+              <div class = "col-1" ></div>
                 </div>
           <% end %>
           </div>
