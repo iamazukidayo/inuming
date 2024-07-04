@@ -1,28 +1,41 @@
 <div class="container mt-5">
  <div class="row">
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <div class="mx-auto offset-lg-2 mt-5">
     <h3>＊　投稿編集　＊</h3>
     <%= form_with model: @post do |f| %>
 
-    <div class="form-group">
-      <p><lavel for="title">タイトル(犬種入力してください)</lavel></p>
-      <p><%= f.text_field :title, autofocus: true, id:"post_title", placeholder:"title" %></p>
-    </div>
+    <table class="table">
+     <tbody>
+        <tr>
+          <td class="form-group">
+            <td><lavel for="title">タイトル(犬種入力してください)</lavel></td>
+            <td><%= f.text_field :title, autofocus: true, id:"post_title", placeholder:"title" %></td>
+          </td>
+        </tr>
 
-    <div class="form-group">
-      <p><label for="image">写真</label></p>
-      <p><%= f.file_field :image, placeholder: "写真", accept: "image/*" %></p>
-    </div>
+        <tr>
+          <td class="form-group">
+            <td><label for="image">写真</label></td>
+            <td><%= f.file_field :image, placeholder: "写真", accept: "image/*" %></td>
+          </td>
+        </tr>
 
-    <div class="form-group">
-      <p><label for="body">説明</label></p>
-      <p><%= f.text_area :body, autofocus: true, id:"post_body", placeholder:"説明" %></p>
-    </div>
+        <tr>
+          <td class="form-group">
+            <td><label for="body">説明</label></td>
+            <td><%= f.text_area :body, autofocus: true, id:"post_body", placeholder:"説明" %></td>
+          </td>
+        </tr>
 
-   <%= f.submit "保存", class: 'btn btn-sm btn-success' %>
-
-   <%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %>
+        <tr>
+          <td></td>
+          <td><%= f.submit "保存", class: 'btn btn-sm btn-success' %></td>
+          <td><%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+          <td></td>
+        </tr>
     <% end %>
+      </tbody>
+    </table>
    </div>
   </div>
 </div>

@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     root :to =>"homes#top"
     get '/about' => "homes#about"
     resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update]
-    resources :users, only: [:edit, :show, :update]
+    resources :users, only: [:edit, :show, :update] do
+      collection do
+        get 'check'
+        patch 'out'
+      end
+    end
    end
 
 

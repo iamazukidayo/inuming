@@ -7,12 +7,35 @@ class Public::SessionsController < Devise::SessionsController
     @user = User.find_by(name: params[:user][:name])
     if @user && @user.valid_password?(params[:user][:password])
       sign_in(@user)
-      redirect_to root_path, notice: "ログインしました。"
+      flash[:login] = "ログインしました。"
+      redirect_to posts_path
     else
       flash.now[:alert] = "ユーザー名またはパスワードが間違っています。"
       render :new
     end
   end
+  
+  protected
+  
+  def reject_end_user
+    @end_user = EndUser.find_by(name: params[:user][:name])
+
+  if @user && @user.valid_password?(params[:user][:password])
+    if @user.is_active
+      sign_in(@user) 
+      redirect_to root_path
+    else
+      flash[:withdrawal_notice] = "退会済みです。再度ご登録をしてご利用ください。"
+      redirect_to new_user_registration_path
+    end
+  else
+    # 該当するユーザが見つからない場合やパスワードが違う場合の処理
+    flash[:login_notice] = "メールアドレスまたはパスワードが正しくありません。"
+    redirect_to new_user_session_path
+  end
+  end
+
+end
 
 
 
