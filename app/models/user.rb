@@ -13,7 +13,7 @@ end
 
  def get_profile_image(width, height)
       unless profile_image.attached?
-        "no_image.jpg"
+        "no_image.png"
       else
         profile_image.variant(resize_to_limit: [width, height]).processed
       end

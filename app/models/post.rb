@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   def get_image(width, height)
       unless image.attached?
-        "no_image.jpg"
+        "no_image.png"
       else
         image.variant(resize_to_fill: [width, height]).processed
       end

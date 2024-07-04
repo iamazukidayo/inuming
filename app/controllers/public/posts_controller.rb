@@ -16,7 +16,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @post.user_id = current_user.id
+    # @post.user_id = current_user.id
   end
 
   def edit
@@ -31,12 +31,12 @@ class Public::PostsController < ApplicationController
     render :edit
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
-  end 
+  end
 
 
 
