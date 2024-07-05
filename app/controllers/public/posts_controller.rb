@@ -6,8 +6,13 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      flash[:ok] = "投稿されました"
+      redirect_to posts_path
+    else
+      @posts = Post.all
+      render :index
+    end
   end
 
   def index
