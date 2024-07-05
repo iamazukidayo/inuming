@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <!--%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
+    <script src="https://kit.fontawesome.com/01e2407594.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -51,11 +52,26 @@
               <% end %>
           </div>
 
-             <div class="col-10 d-flex justify-content-end">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-              <%= link_to "新規投稿", new_post_path, class: "btn btn-light" %>
-              <%= link_to "投稿一覧", posts_path, class: "btn btn-light" %>
-              <%= link_to "マイページ", user_path(current_user), class: "btn btn-light" %>
+            <div class="col-10 d-flex justify-content-end">
+                <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-right-from-bracket" style="color: #af7546;"></i>　ログアウト
+                <% end %>
+
+              <div class= "col-1"></div>
+                <%= link_to new_post_path, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-paw" style="color: #af7546;"></i>　新規投稿
+                <% end %>
+
+              <div class="col-1"></div>
+                <%= link_to posts_path, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-dog" style="color: #c68a62;"></i>　投稿一覧
+                <% end %>
+
+              <div class="col-1"></div>
+                <%= link_to user_path(current_user), class: "btn btn-light" do %>
+                  <i class="fa-solid fa-bone" style="color: #af7546;"></i>　マイページ
+                <% end %>
+
               <div class = "col-1"></div>
             </div>
 
@@ -66,9 +82,20 @@
               <% end %>
             </div>
             <div class="col-10 d-flex justify-content-end">
-              <%= link_to "About", about_path, class: "btn btn-light" %>
-              <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-light" %>
-              <%= link_to "ログイン", user_session_path, class: "btn btn-light" %>
+                <%= link_to about_path, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-scissors" style="color: #af7546;"></i>　About
+                <% end %>
+
+              <div class="col-1"></div>
+                <%= link_to new_user_registration_path, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-circle-plus" style="color: #af7546;"></i>　新規登録
+                <% end %>
+
+              <div class="col-1"></div>
+                <%= link_to user_session_path, class: "btn btn-light" do %>
+                  <i class="fa-solid fa-right-to-bracket" style="color: #af7546;"></i>　ログイン
+                <% end %>
+
                   <!--%= link_to "ゲストログイン", new_customer_session_path, class: "btn btn-light" %>-->
               <div class = "col-1" ></div>
                 </div>
