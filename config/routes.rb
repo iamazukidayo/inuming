@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to =>"homes#top"
     get '/about' => "homes#about"
-    resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update]
+    resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update] do
+      resource :like, only: [:create, :destroy]
+    end
     resources :users, only: [:edit, :show, :update] do
       collection do
         get 'check'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
       end
     end
    end
+
 
 
 
