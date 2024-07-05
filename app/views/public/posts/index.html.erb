@@ -15,6 +15,9 @@
             <%= image_tag post.get_image(250, 200), class: 'card-img-top' %>
             <div class="card-body">
               <h5 class="card-title"><%= post.title %></h5>
+              <div id="like_buttons_<%= post.id %>">
+                <%= render "public/likes/likes", post: post %>
+              </div>
               <!--<p class="card-text">%= post.body %></p>-->
             </div>
           </div>

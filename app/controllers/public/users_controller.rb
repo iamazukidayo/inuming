@@ -27,7 +27,9 @@ before_action :set_user, only: [:likes]
   end
   
   def liked_posts
-    @liked_posts = Post.liked_posts(current_user)
+    # @liked_posts = Post.liked_posts(current_user)
+    @user = User.find(params[:id])
+    @liked_posts = @user.liked_posts
   end 
 
   def out

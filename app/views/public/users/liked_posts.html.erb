@@ -4,10 +4,23 @@
       <h4 class="headline mt-5 ml-5">いいねした投稿</h4>
         <div class="row mt-3">
         <% @liked_posts.each do |post| %>
-          <!--%= render 'public/shared/post_item', post: post %>-->
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <%= image_tag post.get_image(300, 300), class: "card-img-top", style: "width: 100%; height: 300px; object-fit: cover;" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                <p class="card-text" style="font-size: 0.8em;"><%= post.body %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted" style="font-saize: 0.8em;"><%= post.user.name %></small>
+                  <%= link_to 'view', post_path(post), class: "btn btn-sm btn-light" %>
+              </div>
+            </div>
+          </div>
+        </div>
         <% end %>
       </div>
       </div>
     </div>
   </div>
 </div>
+
