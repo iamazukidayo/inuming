@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit, :update]
+before_action :set_user, only: [:likes]
 
  def show
    @user = User.find(params[:id])
@@ -24,6 +25,10 @@ before_action :authenticate_user!, only: [:show, :edit, :update]
       render :edit
     end
   end
+  
+  def liked_posts
+    @liked_posts = Post.liked_posts(current_user)
+  end 
 
   def out
     @user = User.find(current_user.id)
@@ -42,5 +47,8 @@ before_action :authenticate_user!, only: [:show, :edit, :update]
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-
+  
+  def set_user
+    @user = User.find(params[:id])
+  end 
 end

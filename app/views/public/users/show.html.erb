@@ -4,7 +4,7 @@
 
       <h3>＊　マイページ　＊</h3>
 
-      <p><%= image_tag @user.get_profile_image(250, 200), style: "object-fit: cover;" %></p>
+      <p><%= image_tag @user.get_profile_image(250, 200), style: "width: 250px; height: 200px; object-fit: cover;" %></p>
       <table class = "table">
         <tbody>
           <tr>
@@ -33,10 +33,12 @@
             <td>
                 <% if @user.id == current_user.id %>
                   <%= link_to "編集", edit_user_path(current_user.id), class: 'btn btn-sm btn-success' %>
-
                 <% end %>
             </td>
             <td></td>
+            <td>
+              <%= link_to "いいね一覧", liked_posts_user_path(@user) %>
+            </td>
           </tr>
 
       　</tbody>

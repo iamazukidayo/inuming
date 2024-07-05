@@ -3,7 +3,7 @@
   <div class = "row" >
     <div class = "col-xs-6">
       <p class = "col-xs-2">
-        <%= image_tag @post.user.get_profile_image(80, 80), style: "object-fit: cover;" %>
+        <%= image_tag @post.user.get_profile_image(80, 80), style: "width: 80px; height: 80px; object-fit: cover;" %>
         <%= link_to user_path(@post.user_id) do %>
           <%= @post.user.name %>
         <% end %>
@@ -16,19 +16,9 @@
       <div class="col-xs-6">
         <%= image_tag @post.get_image(450, 400) %>
 
-        <% if @post.like_by?(current_user) %>
-        <p>
-          <%= link_to post_like_path(@post), method: :delete do %>
-            ♥<%= @post.likes.count %>
-          <% end %>
-        </p>
-        <% else %>
-        <p>
-          <%= link_to post_like_path(@post), method: :post do %>
-            ♡<%= @post.likes.count %>
-          <% end %>
-        </p>
-        <% end %>
+        <div id="like_buttons_<%= @post.id %>">
+          <%= render "public/likes/likes", post: @post %>
+        </div>
 
         <p class = "col-xs-2">投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
         <p class = "col-xs-4">

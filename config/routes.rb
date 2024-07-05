@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       resource :like, only: [:create, :destroy]
     end
     resources :users, only: [:edit, :show, :update] do
+      member do
+        get :liked_posts
+      end 
       collection do
         get 'check'
         patch 'out'

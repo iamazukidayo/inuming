@@ -18,6 +18,14 @@ class Post < ApplicationRecord
         image.variant(resize_to_fill: [width, height]).processed
       end
   end
+  
+  def self.liked_posts(user)
+    includes(:likes)
+    where(likes: {user_id: user.id})
+    order(created_at: :desc)
+  end 
+      
+  
 end
 
 
