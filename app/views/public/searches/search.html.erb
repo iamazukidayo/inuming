@@ -1,0 +1,44 @@
+<div class='container px-5 px-sm-0'>
+
+<table class="table table-hover table-inverse">
+  <div class='col-md-8 offset-md-1'>
+  <% if @range == "User" %>
+    <thead>
+      <th></th>
+      <th>name</th>
+    </thead>
+    <tbody>
+      <h2> 検索結果"<%= @word %>"</h2>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image(50,50) %></td>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+  <thead>
+    <th></th>
+    <th>タイトル</th>
+    <th>説明</th>
+  </thead>
+    <h2> 検索結果 "<%= @word %>"</h2>
+    <tbody>
+      <% @posts.each do |post| %>
+
+        <tr>
+          <td>
+            <%= link_to post_path(post) do %>
+              <%= image_tag post.get_image(100, 100) %>
+            <% end %>
+          </td>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  <% end %>
+  </div>
+</table>
+</div>
