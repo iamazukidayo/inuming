@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/about' => "homes#about"
     resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update] do
       resource :like, only: [:create, :destroy]
+        resources :comments, only: [:create, :destroy]
     end
     resources :users, only: [:edit, :show, :update] do
       member do

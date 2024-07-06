@@ -12,7 +12,9 @@
                 <p class="card-text" style="font-size: 0.8em;"><%= post.body %></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <small class="text-muted" style="font-saize: 0.8em;"><%= post.user.name %></small>
-                  <%= link_to 'view', post_path(post), class: "btn btn-sm btn-light" %>
+                  <%= link_to post_path(post), class: "btn btn-sm btn-light" do %>
+                    <i class="fa-solid fa-check"></i>　view
+                  <% end %>
               </div>
             </div>
           </div>

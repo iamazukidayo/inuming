@@ -20,6 +20,9 @@
               <div id="like_buttons_<%= post.id %>">
                 <%= render "public/likes/likes", post: post %>
               </div>
+              <div>
+                <%= post.comments.count %>　コメント
+              </div>
               <!--<p class="card-text">%= post.body %></p>-->
             </div>
           </div>

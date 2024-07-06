@@ -24,7 +24,6 @@
         <div id="like_buttons_<%= @post.id %>">
           <%= render "public/likes/likes", post: @post %>
         </div>
-
         <p class = "col-xs-2">投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
         <p class = "col-xs-4">
           <% if @post.user_id == current_user.id %>
@@ -33,11 +32,41 @@
         </p>
       </div>
 
-      <div class="col-1"></div>
-      <div class="col-md-4">
-        <h4><%= @post.title %></h4>
-        <h5><%= @post.body %></h5>
 
+      <div class="col-1"></div>
+        <div class="col-md-6">
+          <h4><%= @post.title %></h4>
+          <h5><%= @post.body %></h5>
+        </div>
+      </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>コメント件数：<%= @post.comments.count %></p>
+      <% @post.comments.each do |comment| %>
+        <div class="media mb-3">
+          <%= image_tag comment.user.get_profile_image(50, 50), class: 'mr-3 rounded-circle' %>
+          <div class="media-body">
+            <h6 class="mt-0"><%= comment.user.name %> <small class="text-muted"><%= comment.created_at.strftime('%Y/%m/%d') %></small></h6>
+            <%= comment.comment %>
+            <% if comment.user == current_user %>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger btn-sm ml-2" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form_with model: [@post, @comment], local: true do |f| %>
+          <div class="form-group">
+            <%= f.text_area :comment, rows: '5', class: 'form-control', placeholder: "コメントをここに" %>
+          </div>
+          <%= f.submit "送信する", class: "btn btn-sm btn-success" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
