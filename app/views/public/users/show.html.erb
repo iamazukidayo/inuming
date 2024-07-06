@@ -55,7 +55,12 @@
                 <div class="card card-fixed-size">
                 <%= image_tag post.get_image(300, 350), class: 'card-img-top' %>
                   <div class="card-body">
+
+                  <div id="like_buttons_<%= post.id %>">
                     <%= render "public/likes/likes", post: post %>
+                  </div>
+
+
                     <%= post.comments.count %> コメント
                    <h5 class="card-title"><%= post.title %></h5>
               <!--<p class="card-text">%= post.body %></p>-->

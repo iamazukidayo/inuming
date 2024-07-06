@@ -23,7 +23,9 @@
         <tr>
           <td class="form-group">
             <td><label for="body">説明</label></td>
-            <td><%= f.text_area :body, autofocus: true, id:"post_body", placeholder:"説明" %></td>
+            <td>
+              <%= f.text_area :body, autofocus: true, rows: '10', id:"post_body", placeholder:"説明" %>
+            </td>
           </td>
         </tr>
 
