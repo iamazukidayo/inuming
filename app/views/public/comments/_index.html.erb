@@ -1,9 +1,12 @@
 <% post.comments.each do |comment| %>
-        <div class="media mb-3">
-          <%= image_tag comment.user.get_profile_image(50, 50), class: 'mr-3 rounded-circle' %>
-          <div class="media-body">
-            <h6 class="mt-0"><%= comment.user.name %> <small class="text-muted"><%= comment.created_at.strftime('%Y/%m/%d') %></small></h6>
-            <%= comment.comment %>
-          </div>
-        </div>
+  <div class="media mb-3" id="comment_<%= comment.id %>">
+    <%= image_tag comment.user.get_profile_image(50, 50), class: 'mr-3 rounded-circle' %>
+    <div class="media-body">
+      <h6 class="mt-0"><%= comment.user.name %> <small class="text-muted"><%= comment.created_at.strftime('%Y/%m/%d') %></small></h6>
+      <%= comment.comment %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn btn-danger btn-sm ml-2" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

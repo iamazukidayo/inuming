@@ -48,9 +48,7 @@
       <div id="comment_counter">
         <%= render "public/comments/counter", post: @post %>
       </div>
-      <% if @comment.user == current_user %>
-        <div><%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger btn-sm ml-2", remote: true %></div>
-      <% end %>
+      
       <div id="comment_index">
         <%= render "public/comments/index", post: @post %>
       </div>
