@@ -1,10 +1,18 @@
 <% if user_signed_in? %>
-  <div class="search_form">
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['犬種(トリミングサロン)'], ['ユーザー']]) %>
-      <%= f.select :search, options_for_select([["部分一致","partial_match"], ["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"]]) %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+  <div class="search-form mt-1">
+    <%= form_with url: search_path, method: :get, local: true, class: "form-inline" do |f| %>
+      <div class="form-group mx-2">
+        <%= f.text_field :word, class: "form-control", placeholder: "検索ワード" %>
+      </div>
+      <div class="form-group mx-2">
+        <%= f.select :range, options_for_select([['犬種(トリミングサロン)', 'トリミングサロン'], ['ユーザー', 'ユーザー']]), {}, class: "form-control" %>
+      </div>
+      <div class="form-group mx-2">
+        <%= f.select :search, options_for_select([["部分一致","partial_match"], ["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"]]), {}, class: "form-control" %>
+      </div>
+      <div class="form-group mx-2">
+        <%= f.submit "検索", class: "btn btn-sm btn-dark" %>
+      </div>
     <% end %>
   </div>
 <% end %>

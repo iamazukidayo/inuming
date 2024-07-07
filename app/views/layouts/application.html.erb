@@ -51,28 +51,36 @@
                 <%= image_tag 'inuming.png', size: '180x125' %>
               <% end %>
           </div>
+            <div class="col-10">
 
-            <div class="col-10 d-flex justify-content-end">
+              <div class="d-flex justify-content-end flex-wrap">
+                <!--<div class="mr-2"></div>-->
+                  <%= render "public/homes/search", user: @user %>
+                <div class= "mr-2"></div>
                 <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-light" do %>
-                  <i class="fa-solid fa-right-from-bracket" style="color: #af7546;"></i>　ログアウト
+                  <i class="fa-solid fa-right-from-bracket" style="color: #af7546;"></i> ログアウト
                 <% end %>
 
-              <div class= "col-1"></div>
-                <%= link_to new_post_path, class: "btn btn-light" do %>
-                  <i class="fa-solid fa-paw" style="color: #af7546;"></i>　新規投稿
+                <div class= "mr-2"></div>
+                <%= link_to new_post_path, class: "btn btn-sm btn-light" do %>
+                    <i class="fa-solid fa-paw" style="color: #af7546;"></i> 新規投稿
                 <% end %>
 
-              <div class="col-1"></div>
-                <%= link_to posts_path, class: "btn btn-light" do %>
-                  <i class="fa-solid fa-dog" style="color: #c68a62;"></i>　投稿一覧
-                <% end %>
 
-              <div class="col-1"></div>
-                <%= link_to user_path(current_user), class: "btn btn-light" do %>
-                  <i class="fa-solid fa-bone" style="color: #af7546;"></i>　マイページ
-                <% end %>
+                <div class="mr-2"></div>
+                  <%= link_to posts_path, class: "btn btn-sm btn-light" do %>
+                    <i class="fa-solid fa-dog" style="color: #c68a62;"></i> 投稿一覧
+                  <% end %>
 
-              <div class = "col-1"></div>
+                <div class="mr-2"></div>
+                  <%= link_to user_path(current_user), class: "btn btn-sm btn-light" do %>
+                    <i class="fa-solid fa-bone" style="color: #af7546;"></i> マイページ
+                  <% end %>
+
+              <!--<div class="col-10">-->
+                <!--%= render "public/homes/search", user: @user %>-->
+              <!--</div>-->
+
             </div>
 
           <% else %>
@@ -86,12 +94,12 @@
                   <i class="fa-solid fa-scissors" style="color: #af7546;"></i>　About
                 <% end %>
 
-              <div class="col-1"></div>
+              <div class="mr-2"></div>
                 <%= link_to new_user_registration_path, class: "btn btn-light" do %>
                   <i class="fa-solid fa-circle-plus" style="color: #af7546;"></i>　新規登録
                 <% end %>
 
-              <div class="col-1"></div>
+              <div class="mr-2"></div>
                 <%= link_to user_session_path, class: "btn btn-light" do %>
                   <i class="fa-solid fa-right-to-bracket" style="color: #af7546;"></i>　ログイン
                 <% end %>
