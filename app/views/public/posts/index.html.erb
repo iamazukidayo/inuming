@@ -3,6 +3,7 @@
   <h2>＊　投稿一覧　＊</h2>
 
   <div class="container">
+
     <% if flash[:ok] %>
       <div class="alert alert-success">
         <%= flash[:ok] %>
@@ -10,6 +11,10 @@
     <% elsif flash[:login] %>
       <div class="alert alert-success">
         <%= flash[:login] %>
+      </div>
+    <% elsif flash[:post_destroy] %>
+      <div class="alert alert-danger">
+        <%= flash[:post_destroy] %>
       </div>
     <% end %>
 

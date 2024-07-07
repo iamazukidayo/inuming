@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :comments, dependent: :destroy
+  
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_password, presence: true, length: { minimum: 6 }
 
 def active_for_authentication?
     super && (is_deleted == false)

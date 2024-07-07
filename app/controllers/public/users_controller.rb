@@ -4,7 +4,7 @@ before_action :set_user, only: [:likes]
 
  def show
    @user = User.find(params[:id])
-   @posts = @user.posts
+   @posts = @user.posts.order(created_at: :desc)
  end
 
 
@@ -20,17 +20,17 @@ before_action :set_user, only: [:likes]
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash.now[:user_update] = "変更が登録されました"
       redirect_to user_path(@user.id)
     else
       render :edit
     end
   end
-  
+
   def liked_posts
-    # @liked_posts = Post.liked_posts(current_user)
     @user = User.find(params[:id])
     @liked_posts = @user.liked_posts
-  end 
+  end
 
   def out
     @user = User.find(current_user.id)
@@ -49,8 +49,8 @@ before_action :set_user, only: [:likes]
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
   def set_user
     @user = User.find(params[:id])
-  end 
+  end
 end

@@ -7,10 +7,10 @@ def create
   @user = User.new(sign_up_params)
   if @user.save
     sign_in(@user)
-    flash[:signup] = "会員登録されました。。"
-    redirect_to posts_path
+    flash.now[:signup] = "会員登録されました。"
+    redirect_to user_path(@user.id)
   else
-    flash[:error] = @user.errors.full_messages.join(", ")
+    # flash[:error] = @user.errors.full_messages.join(", ")
     render :new
   end
 end

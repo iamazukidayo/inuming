@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      post: "投稿"
+      user: "ユーザー"
+    attributes:
+      post:
+        title: "タイトル"
+        body: "本文"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+  errors:
+    messages:
+      blank: "を入力してください"
+      too_short: "は%{count}文字以上で入力してください"
+      too_long: "は%{count}文字以下で入力してください"
+      taken: "はすでに存在します"
+      not_saved:
+        one: "保存できませんでした。1つのエラーが発生しました"
+        other: "保存できませんでした。%{count}つのエラーが発生しました"

@@ -3,10 +3,21 @@
     <div class="mx-auto offset-lg-2 mt-5">
 
       <h3>＊　投稿ページ　＊</h3>
-      <%= form_with model: Post.new do |f| %>
+
+      <% if @post.errors.any? %>
+        <div class="alert alert-danger">
+          <%= pluralize(@post.errors.count, "エラー") %>が発生しました:
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
 
-      <table class = "table">
+      <%= form_with model: @post, local: true do |f| %>
+　　　<table class = "table">
         <tbody>
 
           <tr>

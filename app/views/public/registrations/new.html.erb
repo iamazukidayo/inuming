@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto offset-lg-2 mt-5">
-      <div>
+
+    <% if flash[:end] %>
+      <div class="alert alert-danger">
         <%= flash[:end] %>
       </div>
+    <% end %>
+
 
     <h4>『　新規会員登録　』</h4>
     <p></p>
@@ -16,20 +20,20 @@
       <tbody>
         <tr>
           <td class="field">
-            <th><%= f.label :"ユーザー名" %><br></th>
+            <th><%= f.label :name %><br></th>
             <td><%= f.text_field :name %></td>
           </td>
         </tr>
 
         <tr>
           <td class="field">
-            <th><%= f.label :"メールアドレス" %><br /></th>
+            <th><%= f.label :email %><br /></th>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
         </tr>
 
         <tr>
           <td class="field">
-            <th><%= f.label :"パスワード" %>
+            <th><%= f.label :password %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> 文字以上)</em>
                 <% end %><br />

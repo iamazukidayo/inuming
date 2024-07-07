@@ -1,4 +1,15 @@
 <div class = "container mt-5">
+
+  <% if flash.now[:user_update] %>
+    <div class="alert alert-success">
+      <%= flash.now[:user_update] %>
+    </div>
+  <% elsif flash.now[:signup] %>
+    <div class="alert alert-success">
+      <%= flash.now[:signup] %>
+    </div>
+  <% end %>
+
   <div class = "row">
     <div class="col-md-5">
 
