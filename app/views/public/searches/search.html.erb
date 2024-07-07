@@ -1,44 +1,36 @@
-<div class='container px-5 px-sm-0'>
-
-<table class="table table-hover table-inverse">
-  <div class='col-md-8 offset-md-1'>
-  <% if @range == "User" %>
-    <thead>
-      <th></th>
-      <th>name</th>
-    </thead>
-    <tbody>
-      <h2> 検索結果"<%= @word %>"</h2>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= image_tag user.get_profile_image(50,50) %></td>
-          <td><%= user.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-  <thead>
-    <th></th>
-    <th>タイトル</th>
-    <th>説明</th>
-  </thead>
-    <h2> 検索結果 "<%= @word %>"</h2>
-    <tbody>
-      <% @posts.each do |post| %>
-
-        <tr>
-          <td>
-            <%= link_to post_path(post) do %>
-              <%= image_tag post.get_image(100, 100) %>
-            <% end %>
-          </td>
-          <td><%= post.title %></td>
-          <td><%= post.body %></td>
-        </tr>
-
-      <% end %>
-    </tbody>
-  <% end %>
+<div class="container px-5 px-sm-0 mt-5">
+  <div class='col-md-10 offset-md-1'>
+    <% if @range == "User" %>
+      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> 『　<%= @word %>　』</h2>
+      <div class="row">
+        <% @users.each do |user| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <%= image_tag user.get_profile_image(50, 50), class: "card-img-top" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= user.name %></h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> 『　<%= @word %>　』</h2>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <%= link_to post_path(post) do %>
+                <%= image_tag post.get_image(100, 100), class: "card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= post.title %></h5>
+                  <p class="card-text"><%= truncate(post.body, length: 100) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-</table>
 </div>
