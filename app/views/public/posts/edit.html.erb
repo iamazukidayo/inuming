@@ -46,8 +46,8 @@
 
         <tr>
           <td></td>
-          <td><%= f.submit "保存", class: 'btn btn-sm btn-success' %></td>
-          <td><%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+          <td><%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+          <td><%= f.submit "保存", class: 'btn btn-success' %></td>
           <td></td>
         </tr>
     <% end %>

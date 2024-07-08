@@ -22,7 +22,7 @@
     <% @posts.each do |post| %>
       <div class="col-md-4 mb-4">
         <%= link_to post_path(post) do %>
-          <div class="card card-fixed-size">
+          <div class="card card-fixed-size shadow-sm">
             <%= image_tag post.get_image(250, 200), class: 'card-img-top' %>
             <div class="card-body">
               <h5 class="card-title"><%= post.title %></h5>

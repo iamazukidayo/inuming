@@ -30,7 +30,9 @@
     </div>
 
     <div class = "col-auto text-center">
-      <%= image_tag "3.png", size: '250x250' %>
+      <%= link_to users_guest_sign_in_path, method: :post do %>
+        <%= image_tag "3.png", size: '250x250' %>
+      <% end %>
     </div>
   </div>
 </div>

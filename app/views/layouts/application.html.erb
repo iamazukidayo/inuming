@@ -104,7 +104,11 @@
                   <i class="fa-solid fa-right-to-bracket" style="color: #af7546;"></i>　ログイン
                 <% end %>
 
-                  <!--%= link_to "ゲストログイン", new_customer_session_path, class: "btn btn-light" %>-->
+              <div class="mr-2"></div>
+                <%= link_to users_guest_sign_in_path, method: :post, class: "btn btn-light" do %>
+                  <i class="fa-regular fa-user" style="color: #af7546;"></i>　ゲストログイン
+                <% end %>
+
               <div class = "col-1" ></div>
                 </div>
           <% end %>
