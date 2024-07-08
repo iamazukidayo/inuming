@@ -20,7 +20,7 @@ before_action :set_user, only: [:likes]
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash.now[:user_update] = "変更が登録されました"
+      flash[:user_update] = "変更が登録されました"
       redirect_to user_path(@user.id)
     else
       render :edit

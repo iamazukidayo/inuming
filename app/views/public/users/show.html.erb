@@ -1,12 +1,12 @@
-<div class = "container mt-5">
+<div class="container text-center mt-5">
 
   <% if flash.now[:user_update] %>
     <div class="alert alert-success">
       <%= flash.now[:user_update] %>
     </div>
-  <% elsif flash.now[:signup] %>
+  <% elsif flash[:signup] %>
     <div class="alert alert-success">
-      <%= flash.now[:signup] %>
+      <%= flash[:signup] %>
     </div>
   <% end %>
 

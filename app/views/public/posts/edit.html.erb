@@ -1,4 +1,19 @@
 <div class="container mt-5">
+
+    <div class="offset-lg-2 mt-5">
+      <% if @post.errors.any? %>
+        <div class="alert alert-danger">
+          <%= @post.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
+    </div>
+
+
+
  <div class="row">
   <div class="mx-auto offset-lg-2 mt-5">
     <h3>＊　投稿編集　＊</h3>
