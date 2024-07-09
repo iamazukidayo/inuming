@@ -14,7 +14,7 @@ class Public::SessionsController < Devise::SessionsController
       render :new
     end
   end
-  
+
   def guest_sign_in
     user = User.guest
     sign_in user
