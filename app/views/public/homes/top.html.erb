@@ -1,38 +1,36 @@
 <div class="container text-center mt-5">
-
   <% if flash[:notice] %>
     <div class="alert alert-danger">
       <%= flash[:notice] %>
     </div>
   <% end %>
 
-  <div class = "row justify-content-center" >
-    <div class = "col-12" >
-      <div class = "text-center mb-5" >
-        <h2 class = "display-3" >＊　inuming　＊</h2>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="text-center mb-5">
+        <h2 class="display-3">＊　inuming　＊</h2>
       </div>
 
-      <div class = "text-center mb-5" >
+      <div class="text-center mb-5">
         <h3>犬限定のトリミングスタイル投稿サイト</h3>
       </div>
     </div>
 
-    <div class = "col-auto text-center">
+    <div class="col-auto text-center">
       <%= link_to new_user_registration_path do %>
-        <!--%= image_tag "signup.png", style: '250x250' %>-->
-        <%= image_tag asset_path("signup.png") %>
+        <%= image_tag "signup.png", style: 'width:250px; height:250px;' %>
       <% end %>
     </div>
 
-    <div class = "col-auto text-center">
+    <div class="col-auto text-center">
       <%= link_to user_session_path do %>
-        <%= image_tag "signin.png", style: '250x250' %>
+        <%= image_tag "signin.png", style: 'width:250px; height:250px;' %>
       <% end %>
     </div>
 
-    <div class = "col-auto text-center">
+    <div class="col-auto text-center">
       <%= link_to users_guest_sign_in_path, method: :post do %>
-        <%= image_tag "guest.png", style: '250x250' %>
+        <%= image_tag "guest.png", style: 'width:250px; height:250px;' %>
       <% end %>
     </div>
   </div>
