@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         get 'check'
         patch 'out'
       end
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     end
     get "search", to: "searches#search"
    end
