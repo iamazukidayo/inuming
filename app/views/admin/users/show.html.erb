@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto mt-5">
+      <div class="text-center">
+        <h3>＊ <%= @user.name %>さんの会員詳細 ＊</h3>
+      </div>
+
+      <div class="pl-5">
+        <p class="my-3"><strong>登録写真</strong><span style="margin-left:140px;"><%= image_tag @user.get_profile_image(100,100), class: 'mr-3 rounded-circle' %></span></p>
+        <p class="my-3"><strong>会員ID</strong><span style="margin-left:150px;"><%= @user.id %></span></p>
+        <p class="my-3"><strong>ユーザー名</strong><span style="margin-left:120px;"><%= @user.name %></span></p>
+        <p class="my-3"><strong>メールアドレス</strong><span style="margin-left:90px;"><%= @user.email %></span></p>
+        <p class="my-3"><strong>退会ステータス<span style="margin-left:90px; color:<%= @user.is_deleted ? 'gray' : 'green' %>;"><%= @user.is_deleted ? '退会済み' : '有効 ' %></strong></p>
+      </div>
+    </div>
+  </div>
+</div>

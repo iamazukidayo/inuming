@@ -17,37 +17,32 @@
     <header>
       <div class="contaoner-fluid">
        <div class="row align-items-center border-bottom">
-        <!--<div class = "col-2" ></div>-->
-          <!--%= link_to root_path do %>-->
-            <!--%= image_tag 'inuming.png', size: '180x125' %>-->
-          <!--% end %>-->
-        <!--</div>-->
-
-        <% if admin_signed_in? %>
-          <div class = "col-1" ></div>
-          <div class = "mt-1 mr-0 mb-1 ml-0" >
-        <%= link_to admin_path do %>
-          <%= image_tag 'admin.jpg', size: '180x125' %>
-        <% end %>
-        </div>
+          <% if admin_signed_in? %>
+            <div class = "col-1" ></div>
+            <div class = "mt-1 mr-0 mb-1 ml-0" >
+              <%= link_to admin_path do %>
+                <%= image_tag 'admin.jpg', size: '180x125' %>
+              <% end %>
+            </div>
 
 
-        <div class = "col-2" ></div>
-        <div class = "mt-4 mr-0 mb-4 ml-0 row" >
-          <%= link_to admin_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i> TOP
-          <% end %>
+            <div class = "col-2" ></div>
+              <div class = "mt-4 mr-0 mb-4 ml-0 row" >
+                <%= link_to admin_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i> TOP
+                <% end %>
 
-          <div "class col-2"></div>
-          <!--%= link_to "会員一覧", admin_customers_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" %>-->
-
+                <div class="mr-2"></div>
+                <%= link_to admin_users_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do %>
+                  <i class="fa-regular fa-user"></i> 会員一覧
+                <% end %>
           <!--%= link_to "投稿一覧", admin_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" %>-->
 
           <!--%= link_to "コメント一覧", admin_genres_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " %>-->
-
-          <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
-            <i class="fa-solid fa-right-from-bracket"></i> ログアウト
-          <% end %>
+                <div class="mr-2"></div>
+                <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
+                  <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+                <% end %>
         </div>
 
           <% elsif user_signed_in? %>
@@ -132,7 +127,9 @@
           </div>
         </div>
             <div class="col-12 d-flex justify-content-end">
-              <%= image_tag 'home.png', size: '170x140' %>
+              <%= link_to admin_session_path do %>
+                <%= image_tag 'home.png', size: '170x140' %>
+              <% end %>
             </div>
       </div>
     </footer>
