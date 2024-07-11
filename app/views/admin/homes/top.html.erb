@@ -1,3 +1,24 @@
-<h1>管理者側topです</h1>
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="text-center mb-5">
+              <h2 class="display-3">＊ inuming  ＊</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto text-center">
+        <%= link_to admin_users_path do %>
+            <%= image_tag 'users.png', size: '250x250' %>
+        <% end %>
+        </div>
 
+        <div class="col-auto text-center">
+          <%= image_tag 'posts.png', size: '250x250' %>
+        </div>
+
+        <div class="col-auto text-center">
+          <%= image_tag 'comments.png', size: '250x250' %>
+        </div>
+    </div>
+</div>

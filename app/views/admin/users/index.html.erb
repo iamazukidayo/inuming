@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto offset-lg-2 mt-5">
+
+      <div class="text-center">
+        <h3>＊ 会員一覧 ＊</h3>
+      </div>
+
+
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th></th>
+          <th>会員ID</th>
+          <th>ユーザー名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td></td>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td>
+              <% if user.is_deleted == true %>
+                <strong class="text-secondary">退会済み</strong>
+              <% else %>
+                <strong class="text-success">有効</strong>
+              <% end %>
+            </td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
