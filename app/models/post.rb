@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
 
   def like_by?(user)
-    likes.exists?(user_id: user.id)
+    user.present? && likes.exists?(user_id: user.id)
   end
 
 

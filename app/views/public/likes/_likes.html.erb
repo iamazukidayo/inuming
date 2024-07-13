@@ -1,3 +1,4 @@
+<% if current_user %>
  <% if post.like_by?(current_user) %>
         <p>
           <%= link_to post_like_path(post), method: :delete, remote: true do %>
@@ -11,3 +12,4 @@
           <% end %>
         </p>
   <% end %>
+<% end %>
