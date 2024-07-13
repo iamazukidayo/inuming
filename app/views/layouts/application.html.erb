@@ -37,8 +37,10 @@
                   <i class="fa-regular fa-user"></i> 会員一覧
                 <% end %>
           <!--%= link_to "投稿一覧", admin_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" %>-->
-
-          <!--%= link_to "コメント一覧", admin_genres_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " %>-->
+                <div class="mr-2"></div>
+                <%= link_to admin_comments_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do  %>
+                  <i class="fa-regular fa-comment-dots"></i>コメント一覧
+                <% end %>
                 <div class="mr-2"></div>
                 <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
                   <i class="fa-solid fa-right-from-bracket"></i> ログアウト
