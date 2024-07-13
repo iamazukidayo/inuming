@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto offset-lg-2">
+      <div class="text-center">
+        <h3>＊ <%= @user.name %>さんの情報編集 ＊</h3>
+      </div>
+
+      <%= form_with model: @user, url: admin_user_path(@user), method: :patch, local: true do |f| %>
+        <table class="table mt-3">
+          <tbody>
+            <tr>
+              <td class="field">
+                <th>会員ID</th>
+                <th></th>
+                <td><%= @user.id %></td>
+              </td>
+            </tr>
+            <tr>
+              <td class="field">
+                <th>ユーザー名</th>
+                <th></th>
+                <td><%= f.text_field :name %></td>
+              </td>
+            </tr>
+            <tr>
+              <td class="field">
+                <th>メールアドレス</th>
+                <th></th>
+                <td><%= f.text_field :email %></td>
+              </td>
+            </tr>
+            <tr>
+              <td class="labeld">
+                <th>退会ステータス</th>
+                <th></th>
+                  <td class="custom-control custom-radio custom-control-inline">
+                    <%= f.radio_button :is_deleted, true, checked: @user.is_deleted == true, class: 'custom-control-input', id: 'status-deleted' %>
+                    <%= f.label :is_deleted, '退会済み', class: 'custom-control-label', for: 'status-deleted' %>
+                  </td>
+
+                  <td class="custom-control custom-radio custom-control-inline">
+                    <%=f.radio_button :is_deleted, false, checked: @user.is_deleted == false, class: 'custom-control-input', id: 'status-active'%>
+                    <%= f.label :is_deleted, '有効', class: 'custom-control-label', for: 'status-active' %>
+                  </td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%=f.submit "変更を保存", class:'btn btn-success' %></td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <%= link_to "< 戻る", admin_user_path(@user.id), class:"btn btn-sm btn-outline-dark" %>
+    </div>
+  </div>
+</div>

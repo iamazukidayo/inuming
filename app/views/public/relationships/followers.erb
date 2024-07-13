@@ -6,8 +6,6 @@
       <h4><i class="fa-regular fa-face-smile fa-bounce"></i> フォロワー</h4>
     </div>
 
-      <% if @users.exists? %>
-        <% @users.each do |user| %>
           <table class= 'table'>
             <thead>
               <tr>
@@ -19,6 +17,9 @@
               </tr>
             </thead>
             <tbody>
+              <% if @users.exists? %>
+                <% @users.each do |user| %>
+          <table class= 'table'>
               <tr>
                 <td><%= image_tag user.get_profile_image(100,100),  class: 'mr-3 rounded-circle' %></td>
                 <td></td>
