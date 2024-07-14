@@ -31,8 +31,14 @@
 
     <div class="row mt-3">
       <div class="col-xs-8">
-        <%= image_tag @post.get_image(450, 400) %>
 
+        <!--% @post.images.each do |image| %>-->
+          <!--%= image_tag image(450, 400) %>-->
+        <!--% end %>-->
+
+        <% if @post.image.attached? %>
+          <%= image_tag @post.get_image(450, 400) %>
+        <% end %>
         <div id="like_buttons_<%= @post.id %>">
           <%= render "public/likes/likes", post: @post %>
         </div>
