@@ -71,18 +71,14 @@
         <% @posts.each do |post| %>
             <div class="col-md-4 mb-4">
               <%= link_to post_path(post) do %>
-                <div class="card card-fixed-size">
-                <%= image_tag post.get_image(200, 250), style: "object-fit: cover;" , class: 'card-img-top' %>
+                <div class="card h-100 card-fixed-size">
+                <%= image_tag url_for(post.images.first), style: "width: 150px; height: 200px; object-fit: cover;", class: 'card-img-top' %>
                   <div class="card-body">
-
-                  <div id="like_buttons_<%= post.id %>">
-                    <%= render "public/likes/likes", post: post %>
-                  </div>
-
-
+                    <div id="like_buttons_<%= post.id %>">
+                      <%= render "public/likes/likes", post: post %>
+                    </div>
                     <div><%= post.comments.count %> コメント</div>
                     <small class="card-title"><%= post.title %></small>
-              <!--<p class="card-text">%= post.body %></p>-->
                   </div>
                 </div>
               <% end %>
