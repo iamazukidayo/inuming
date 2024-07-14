@@ -24,7 +24,7 @@
               <td><%= @users.find(comment.user_id).name %></td>
               <td><%= comment.comment %></td>
               <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-              <td><%= link_to "投稿を見る", post_path(comment.post), class:"btn btn-sm btn-dark" %></td>
+              <td><%= link_to "投稿確認", post_path(comment.post), class:"btn btn-sm btn-dark" %></td>
               <td><%= link_to "削除", admin_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-sm btn-danger" %></td>
             </tr>
           <% end %>
