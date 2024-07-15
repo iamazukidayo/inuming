@@ -1,58 +1,61 @@
-<div class="container mt-5">
-
-    <div class="offset-lg-2 mt-5">
-      <% if @post.errors.any? %>
-        <div class="alert alert-danger">
-          <%= @post.errors.count %>件のエラーが発生しました
-          <ul>
-            <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-      <% end %>
-    </div>
 
 
+<div class="text-center mt-5">
+  <h2>＊ 投稿編集 ＊</h2>
 
- <div class="row">
-  <div class="mx-auto offset-lg-2 mt-5">
-    <h3>＊　投稿編集　＊</h3>
-    <%= form_with model: @post do |f| %>
-
-    <table class="table">
-     <tbody>
-        <tr>
-          <td class="form-group">
-            <td><lavel for="title">タイトル(犬種入力してください)</lavel></td>
-            <td><%= f.text_field :title, autofocus: true, id:"post_title", placeholder:"title" %></td>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="form-group">
-            <td><label for="image">写真</label></td>
-            <td><%= f.file_field :images, multiple: true, placeholder: "写真", accept: "image/*" %></td>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="form-group">
-            <td><label for="body">説明</label></td>
-            <td>
-              <%= f.text_area :body, autofocus: true, rows: '10', id:"post_body", placeholder:"説明" %>
-            </td>
-          </td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td><%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
-          <td><%= f.submit "保存", class: 'btn btn-success' %></td>
-          <td></td>
-        </tr>
+  <div class="container">
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger">
+        <%= pluralize(@post.errors.count, "エラー") %>が発生しました:
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-      </tbody>
-    </table>
-   </div>
+      <div class="row">
+        <div class="mx-auto offset-lg-2 mt-5">
+    <%= form_with model: @post do |f| %>
+      <table class="table mt-5">
+        <tbody>
+          <tr>
+            <th>タイトル（犬種入力してください）</th>
+            <td><%= f.text_field :title, placeholder: "[例：トイプードル]", class: 'form-control' %></td>
+          </tr>
+          <tr>
+            <th>写真</th>
+            <td>
+              <%= f.file_field :images, multiple: true, accept: 'image/*', class: 'form-control' %>
+              <td><button type="button" id="add-file-field" class="btn btn-secondary">画像を追加</button></td>
+            </td>
+          </tr>
+          <tr>
+            <th>説明</th>
+            <td class="form-group">
+              <%= f.text_area :body, rows: '10', class: 'form-control', placeholder: "[#トリミングサロン名、スタイル]" %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "削除", post_path(@post.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+            <td><%= f.submit "保存", class: 'btn btn-success' %></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("add-file-field").addEventListener("click", function() {
+      const fileField = document.querySelector("input[type='file']");
+      const newFileField = fileField.cloneNode();
+      fileField.parentNode.insertBefore(newFileField, fileField.nextSibling);
+    });
+  });
+</script>
