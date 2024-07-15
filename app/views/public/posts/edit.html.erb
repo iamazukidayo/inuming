@@ -4,6 +4,12 @@
   <h2>＊ 投稿編集 ＊</h2>
 
   <div class="container">
+      <% if flash[:post_update] %>
+      <div class="alert alert-success container text-center mt-5">
+        <%= flash[:post_update] %>
+      </div>
+  <% end %>
+
     <% if @post.errors.any? %>
       <div class="alert alert-danger">
         <%= pluralize(@post.errors.count, "エラー") %>が発生しました:
@@ -14,6 +20,7 @@
         </ul>
       </div>
     <% end %>
+
       <div class="row">
         <div class="mx-auto offset-lg-2 mt-5">
     <%= form_with model: @post do |f| %>
@@ -52,10 +59,12 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("add-file-field").addEventListener("click", function() {
+  document.addEventListener("click", function(event) {
+    if (event.target && event.target.id === "add-file-field") {
       const fileField = document.querySelector("input[type='file']");
       const newFileField = fileField.cloneNode();
       fileField.parentNode.insertBefore(newFileField, fileField.nextSibling);
-    });
+    }
   });
+});
 </script>

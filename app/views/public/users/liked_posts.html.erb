@@ -4,9 +4,9 @@
       <h4 class="headline mt-5 ml-5"><i class="fa-solid fa-thumbs-up fa-bounce"></i>　いいねした投稿</h4>
         <div class="row mt-3">
         <% @liked_posts.each do |post| %>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <%= image_tag post.get_image(300, 300), class: "card-img-top", style: "width: 100%; height: 300px; object-fit: cover;" %>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 card-fixed-size">
+              <%= image_tag url_for(post.images.first), style: "width: 350px; height: 300px; object-fit: cover;" %>
               <div class="card-body">
                 <h5 class="card-title"><%= post.title %></h5>
                 <p class="card-text" style="font-size: 0.8em;"><%= post.body %></p>

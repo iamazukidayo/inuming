@@ -10,9 +10,3 @@
   height: 200px;
   object-fit: cover;
 }
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
