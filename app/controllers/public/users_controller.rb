@@ -29,7 +29,7 @@ before_action :set_user, only: [:likes]
 
   def liked_posts
     @user = User.find(params[:id])
-    @liked_posts = @user.liked_posts
+    @liked_posts = @user.liked_posts.page(params[:page]).per(9).order(created_at: :desc)
   end
 
   def out

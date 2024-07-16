@@ -16,13 +16,13 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.page(params[:page]).order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
-    # @post.user_id = current_user.id
     @comment = Comment.new
+    # @comments = @post.comments.page(params[:page]).per(3)
     @user = @post.user
   end
 
