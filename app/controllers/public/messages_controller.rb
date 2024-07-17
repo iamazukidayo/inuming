@@ -20,12 +20,8 @@ class Public::MessagesController < ApplicationController
   def create_notification(message)
     room = message.room
     recipient_entry = room.entries.where.not(user_id: message.user_id).first
-    if recipient_entry
-      recipient = recipient_entry.user
-      Notification.create(user: recipient, message: message)
-    else
-      Rails.logger.debug "No recipient found for notification"
-    end
+    recipient = recipient_entry.user
+    Notification.create(user: recipient, message: message)
   end
 end
 
