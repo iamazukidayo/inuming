@@ -2,7 +2,9 @@
   <div class="row">
     <% @entries.each do |e| %>
       <% if @my_account != e.user.id %>
+      <div class="mt-5">
         <h4><strong><%= e.user.name %>さんとのメッセージ</strong></h4>
+      </div>
       <% end %>
     <% end %>
   </div>
