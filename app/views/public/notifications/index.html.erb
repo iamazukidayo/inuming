@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="text-center">
+      <h3>＊ 通知一覧 ＊</h3>
+    </div>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <% @notifications.each do |notification| %>
+            <td><%= link_to notification.message.message, room_path(notification.message.room) %></td>
+            <td><%= button_to "マークを既読にする", mark_as_read_notification_path(notification), method: :patch %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

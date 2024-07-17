@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true, length: { minimum: 6 }

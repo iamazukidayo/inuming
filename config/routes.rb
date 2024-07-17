@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to =>"homes#top"
     get '/about' => "homes#about"
+      resources :notifications, only: [:index] do
+        member do
+          patch 'mark_as_read'
+        end
+      end
     resources :posts, only: [:new, :index, :show, :create, :destroy, :edit, :update] do
       resource :like, only: [:create, :destroy]
         resources :comments, only: [:create, :destroy]
