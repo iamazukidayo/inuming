@@ -67,8 +67,8 @@
               <% if @is_room == true %>
                 <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-light btn-sm" ><i class="fa-regular fa-envelope"></i> DMを送る</a></p>
               <% else %>
-                <%= form_with model: @room, local: true do |f| %>
-                  <%= f.fields_for @entry do |e| %>
+                <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
+                  <%= fields_for :entry, @entry do |e| %>
                     <%= e.hidden_field :user_id, value: @user.id %>
                   <% end %>
                   <%= f.submit "DMをはじめる", class:"btn btn-light btn-sm" %>

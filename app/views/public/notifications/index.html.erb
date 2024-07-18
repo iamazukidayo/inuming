@@ -4,11 +4,11 @@
       <h3>＊ 通知一覧 ＊</h3>
     </div>
 
-    <table class="table">
+    <table class= 'table mt-5'>
       <tbody>
-        <tr>
           <% @notifications.each do |notification| %>
-            <td><%= link_to notification.message.message, room_path(notification.message.room) %></td>
+        <tr>
+            <td><i class="fa-regular fa-square-check"></i> <%= link_to notification.message.message, room_path(notification.message.room) %></td>
             <td><%= button_to "マークを既読にする", mark_as_read_notification_path(notification), method: :patch %></td>
           <% end %>
         </tr>
