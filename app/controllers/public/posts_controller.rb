@@ -16,13 +16,16 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).order(created_at: :desc)
+    if params[:sort] == 'likes'
+      @posts = Post.joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page]).per(12)
+    else
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(12)
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    # @comments = @post.comments.page(params[:page]).per(3)
     @user = @post.user
   end
 
