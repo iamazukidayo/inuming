@@ -8,6 +8,14 @@
     <div class="alert alert-success">
       <%= flash[:signup] %>
     </div>
+  <% elsif flash[:login] %>
+    <div class="alert alert-success">
+      <%= flash[:login] %>
+    </div>
+  <% elsif flash[:guest] %>
+    <div class="alert alert-success">
+      <%= flash[:guest] %>
+    </div>
   <% end %>
 
   <div class = "row">
