@@ -81,15 +81,14 @@
                   <%= link_to user_path(current_user), class: "btn btn-sm btn-light" do %>
                     <i class="fa-solid fa-bone" style="color: #af7546;"></i> マイページ
                   <% end %>
-
                 <div class="mr-2"></div>
-                  <%= link_to notifications_path, class: "btn btn-sm btn-light" do %>
-                    <i class="fa-solid fa-bell" style="color: #af7546;"></i> 通知
-                    <% if current_user.notifications.where(read: false).any? %>
-                      <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
-                    <% end %>
+                <%= link_to notifications_path, class: "btn btn-sm btn-light" do %>
+                  <i class="fa-solid fa-bell" style="color: #af7546;"></i> 通知
+                  <% if user_signed_in? && current_user.notifications.where(read: false).any? %>
+                    <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
                   <% end %>
-                </div>
+                <% end %>
+
 
           <% else %>
             <div class = "col-2" >
