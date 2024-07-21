@@ -15,6 +15,13 @@ def create
   end
 end
 
+def ensure_normal_user
+  if resource.email ==  'guest@example.com'
+    flash[:guestout] = "ゲストユーザーは削除できません。"
+    redirect_to user_path(user)
+  end 
+end 
+    
 
 
   # GET /resource/sign_up

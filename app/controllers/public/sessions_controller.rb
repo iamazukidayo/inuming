@@ -26,12 +26,18 @@ class Public::SessionsController < Devise::SessionsController
   protected
 
   def reject_deleted_user
+    if params[:user].nil?
+      flash[:alert] = "ログイン情報が不正です。再度ご入力ください"
+      redirect_to new_user_session_path and return
+    end
     @user = User.find_by(name: params[:user][:name])
     if @user
       if @user.valid_password?(params[:user][:password]) && @user.is_deleted
         flash[:end] = "退会済みです。再度ご登録をしてご利用ください"
-        redirect_to new_user_registration_path
+        redirect_to new_user_registration_path and return
       end
+    else 
+      flash[:alert] = "ログイン情報が不正です。再度ご入力ください。"
     end
   end
 

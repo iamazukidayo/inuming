@@ -6,9 +6,12 @@
         <% @users.each do |user| %>
           <div class="col-md-3 mb-4">
             <div class="card h-100">
-              <%= image_tag user.get_profile_image(50, 50), class: "card-img-top" %>
+              <%= image_tag user.get_profile_image(100, 100), class: "card-img-top" %>
                 <div class="card-body">
                   <h5 class="card-title"><%= user.name %></h5>
+                  <%= link_to user_path(user), class: "btn btn-sm btn-light" do %>
+                    <i class="fa-solid fa-check"></i>　view
+                  <% end %>
                 </div>
             </div>
           </div>

@@ -20,16 +20,20 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true, length: { minimum: 6 }
 
-def active_for_authentication?
-    super && (is_deleted == false)
-end
+  def active_for_authentication?
+      super && (is_deleted == false)
+  end
 
-def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = "Guest User"
-    end
-end
+  def self.guest
+      find_or_create_by!(email: 'guest@example.com') do |user|
+        user.password = SecureRandom.urlsafe_base64
+        user.name = "Guest User"
+      end
+  end
+
+  def guest?
+      self.email == 'guest@example.com'
+  end
 
  def get_profile_image(width, height)
       unless profile_image.attached?
@@ -41,15 +45,15 @@ end
 
   def self.looks(search, word)
     if search == "perfect_match"
-      @user = User.where("name LIKE?", "#{word}")
+      @users = User.where("name LIKE ?", "#{word}")
     elsif search == "forward_match"
-      @user = User.where("name LIKE?","#{word}%")
+      @users = User.where("name LIKE ?", "#{word}%")
     elsif search == "backward_match"
-      @user = User.where("name LIKE?","%#{word}")
+      @users = User.where("name LIKE ?", "%#{word}")
     elsif search == "partial_match"
-      @user = User.where("name LIKE?","%#{word}%")
+      @users = User.where("name LIKE ?", "%#{word}%")
     else
-      @user = User.all
+      @users = User.all
     end
   end
 

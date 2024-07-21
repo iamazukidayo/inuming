@@ -16,6 +16,10 @@
     <div class="alert alert-success">
       <%= flash[:guest] %>
     </div>
+  <% elsif flash[:guestout] %>
+    <div class="alert alert-danger">
+      <%= flash[:guestout] %>
+    </div>
   <% end %>
 
   <div class = "row">
@@ -58,7 +62,7 @@
 
           <tr>
             <td>
-                <% if @user.id == current_user.id %>
+                <% if @user.id == current_user.id && !current_user.guest? %>
                   <%= link_to "編集", edit_user_path(current_user.id), class: 'btn btn-sm btn-success' %>
                 <% end %>
             </td>
