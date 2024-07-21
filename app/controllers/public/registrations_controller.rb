@@ -10,17 +10,9 @@ def create
     flash[:signup] = "会員登録されました。"
     redirect_to user_path(@user.id)
   else
-    # flash[:error] = @user.errors.full_messages.join(", ")
     render :new
   end
 end
-
-def ensure_normal_user
-  if resource.email ==  'guest@example.com'
-    flash[:guestout] = "ゲストユーザーは削除できません。"
-    redirect_to user_path(user)
-  end 
-end 
     
 
 

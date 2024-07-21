@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit, :update]
 before_action :set_user, only: [:likes]
+before_action :ensure_guest_user, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -70,5 +71,12 @@ before_action :set_user, only: [:likes]
 
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_guest_user
+    if current_user.guest?
+      flash[:guestout] = "ゲストユーザーはこの操作を行うことができません"
+      redirect_to root_path
+    end 
   end
 end
