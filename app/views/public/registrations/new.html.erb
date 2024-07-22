@@ -2,9 +2,14 @@
   <div class="row">
     <div class="mx-auto offset-lg-2 mt-5">
 
-    <% if flash[:notice] %>
+    <% if flash[:userout] %>
       <div class="alert alert-danger">
-        <%= flash[:notice] %>
+        <%= flash[:userout] %>
+      </div>
+    <% end %>
+    <% elsif flash[:userend] %>
+      <div class="alert alert-danger">
+        <%= flash[:userend] %>
       </div>
     <% end %>
 

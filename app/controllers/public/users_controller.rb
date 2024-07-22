@@ -55,7 +55,7 @@ before_action :ensure_guest_user, only: [:edit, :update, :destroy]
     @user = User.find(current_user.id)
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:userout] = "退会処理を実行いたしました"
     redirect_to new_user_registration_path
   end
 
