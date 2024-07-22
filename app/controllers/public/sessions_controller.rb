@@ -36,7 +36,7 @@ class Public::SessionsController < Devise::SessionsController
         flash[:userend] = "退会済みです。再度ご登録をしてご利用ください"
         redirect_to new_user_registration_path and return
       end
-    else 
+    else
       flash[:alert] = "ログイン情報が不正です。再度ご入力ください。"
     end
   end
@@ -64,8 +64,7 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  def after_sign_in_path_for(resource)
-    root_path
-    # 本当は投稿一覧へ行きたい
-  end
+  # def after_sign_in_path_for(resource)
+    # root_path
+  # end
 end
