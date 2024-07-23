@@ -16,18 +16,17 @@
 
     <header>
       <div class="contaoner-fluid">
-       <div class="row align-items-center border-bottom">
+        <div class="row align-items-center border-bottom">
           <% if admin_signed_in? %>
-            <div class = "col-1" ></div>
-            <div class = "mt-1 mr-0 mb-1 ml-0" >
+            <div class = "col-2 col-md-1" ></div>
               <%= link_to admin_path do %>
                 <%= image_tag 'admin.jpg', size: '180x125' %>
               <% end %>
             </div>
 
 
-            <div class = "col-2" ></div>
-              <div class = "mt-4 mr-0 mb-4 ml-0 row" >
+            <div class = "col-2 col-md-11" ></div>
+              <div class = "d-flex justify-content-end flex-wrap" >
                 <%= link_to admin_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
                   <i class="fa-solid fa-star" style="color: #FFD43B;"></i> TOP
                 <% end %>
@@ -36,51 +35,56 @@
                 <%= link_to admin_users_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do %>
                   <i class="fa-regular fa-user"></i> 会員一覧
                 <% end %>
-                <div class= "mr-2"></div>
-                  <%= link_to admin_posts_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do %>
-                    <i class="fa-regular fa-pen-to-square"></i> 投稿一覧
-                  <% end %>
+
+                <div class="mr-2"></div>
+                <%= link_to admin_posts_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do %>
+                  <i class="fa-regular fa-pen-to-square"></i> 投稿一覧
+                <% end %>
+
                 <div class="mr-2"></div>
                 <%= link_to admin_comments_path, class: "btn btn-light mt-auto mr-2 mb-auto ml-4" do  %>
                   <i class="fa-regular fa-comment-dots"></i> コメント一覧
                 <% end %>
+
                 <div class="mr-2"></div>
                 <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mt-auto mr-2 mb-auto ml-4 " do %>
                   <i class="fa-solid fa-right-from-bracket"></i> ログアウト
                 <% end %>
+                <div class="mr-2"></div>
         </div>
 
           <% elsif user_signed_in? %>
 
-          <div class = "col-1" >
+          <div class = "col-2 col-md-1" >
               <%= link_to root_path do %>
                 <%= image_tag 'inuming.png', size: '180x125' %>
               <% end %>
           </div>
-            <div class="col-10">
+            <div class="col-md-11">
 
               <div class="d-flex justify-content-end flex-wrap">
                   <%= render "public/homes/search", user: @user %>
-                <div class= "mr-2"></div>
+
                 <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-light" do %>
                   <i class="fa-solid fa-right-from-bracket" style="color: #af7546;"></i> ログアウト
                 <% end %>
 
-                <div class= "mr-2"></div>
+                <div class="mr-2"></div>
                 <%= link_to new_post_path, class: "btn btn-sm btn-light" do %>
                     <i class="fa-solid fa-paw" style="color: #af7546;"></i> 新規投稿
                 <% end %>
 
 
                 <div class="mr-2"></div>
-                  <%= link_to posts_path, class: "btn btn-sm btn-light" do %>
-                    <i class="fa-solid fa-dog" style="color: #c68a62;"></i> 投稿一覧
-                  <% end %>
+                <%= link_to posts_path, class: "btn btn-sm btn-light" do %>
+                  <i class="fa-solid fa-dog" style="color: #c68a62;"></i> 投稿一覧
+                <% end %>
 
                 <div class="mr-2"></div>
-                  <%= link_to user_path(current_user), class: "btn btn-sm btn-light" do %>
-                    <i class="fa-solid fa-bone" style="color: #af7546;"></i> マイページ
-                  <% end %>
+                <%= link_to user_path(current_user), class: "btn btn-sm btn-light" do %>
+                  <i class="fa-solid fa-bone" style="color: #af7546;"></i> マイページ
+                <% end %>
+
                 <div class="mr-2"></div>
                 <%= link_to notifications_path, class: "btn btn-sm btn-light" do %>
                   <i class="fa-solid fa-bell" style="color: #af7546;"></i> 通知
@@ -88,6 +92,9 @@
                     <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
                   <% end %>
                 <% end %>
+                <div class="mr-2"></div>
+              </div>
+            </div>
 
 
           <% else %>
@@ -96,28 +103,27 @@
                 <%= image_tag 'inuming.png', size: '180x125' %>
               <% end %>
             </div>
-            <div class="col-10 d-flex justify-content-end">
+            <div class="col-10 d-flex justify-content-end flex-wrap">
                 <%= link_to about_path, class: "btn btn-light" do %>
                   <i class="fa-solid fa-scissors" style="color: #af7546;"></i>　About
                 <% end %>
 
-              <div class="mr-2"></div>
+                <div class="mr-2"></div>
                 <%= link_to new_user_registration_path, class: "btn btn-light" do %>
                   <i class="fa-solid fa-circle-plus" style="color: #af7546;"></i>　新規登録
                 <% end %>
 
-              <div class="mr-2"></div>
+                <div class="mr-2"></div>
                 <%= link_to user_session_path, class: "btn btn-light" do %>
                   <i class="fa-solid fa-right-to-bracket" style="color: #af7546;"></i>　ログイン
                 <% end %>
 
-              <div class="mr-2"></div>
+                <div class="mr-2"></div>
                 <%= link_to users_guest_sign_in_path, method: :post, class: "btn btn-light" do %>
                   <i class="fa-regular fa-user" style="color: #af7546;"></i>　ゲストログイン
                 <% end %>
-
-              <div class = "col-1" ></div>
-                </div>
+                <div class="mr-2"></div>
+            </div>
           <% end %>
           </div>
         </div>

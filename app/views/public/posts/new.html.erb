@@ -42,7 +42,7 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbolinks:load", function() {
   document.addEventListener("click", function(event) {
     if (event.target && event.target.id === "add-file-field") {
       const fileField = document.querySelector("input[type='file']");
