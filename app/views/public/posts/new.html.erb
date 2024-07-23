@@ -20,17 +20,19 @@
           <tr>
             <th>タイトル（犬種入力してください）</th>
             <td><%= f.text_field :title, placeholder: "[例：トイプードル]", class: 'form-control' %></td>
+            <td></td>
           </tr>
           <tr>
             <th>写真</th>
             <td><%= f.file_field :images, multiple: true, accept: 'image/*', class: 'form-control' %></td>
-            <td><button type="button" id="add-file-field" class="btn btn-secondary">画像を追加</button></td>
+            <td><button type="button" id="add-file-field" class="btn btn-sm btn-secondary">画像を追加</button></td>
           </tr>
           <tr>
             <th>説明</th>
             <td class="form-group">
               <%= f.text_area :body, rows: '10', class: 'form-control', placeholder: "[#トリミングサロン名、スタイル]" %>
             </td>
+            <td></td>
           </tr>
         </tbody>
       </table>
