@@ -1,7 +1,7 @@
 # inuming
 
 
-![画像の説明](images/inuming.img.jpg)
+![inuming img](https://github.com/user-attachments/assets/43849eff-f456-4b19-9d26-26f231b1fbec)
 ## サイト概要
 ### サイトテーマ
 トリマーと飼い主さんが、ペットのトリミングスタイルを投稿、共有し、情報交換ができるSNSサイト
