@@ -1,75 +1,54 @@
-<div class="container">
-  <div class="row">
-    <div class="mx-auto offset-lg-2 mt-5">
+<div class="container mt-5">
 
-    <% if flash[:userout] %>
-      <div class="alert alert-danger">
-        <%= flash[:userout] %>
-      </div>
-    <% elsif flash[:userend] %>
-      <div class="alert alert-danger">
-        <%= flash[:userend] %>
-      </div>
-    <% end %>
+  <% if flash[:userout] %>
+    <div class="alert alert-danger">
+      <%= flash[:userout] %>
+    </div>
+  <% elsif flash[:userend] %>
+    <div class="alert alert-danger">
+      <%= flash[:userend] %>
+    </div>
+  <% end %>
 
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h4 class="text-center mb-4">新規会員登録</h4>
 
-    <h4>『　新規会員登録　』</h4>
-    <p></p>
+      <%= form_with model: @user, url: user_registration_path(resource_name), local: true do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
 
-   <%= form_with model: @user, url: user_registration_path(resource_name) do |f| %>
-     <%= render "public/shared/error_messages", resource: resource %>
+        <div class="form-group">
+          <%= f.label :name, "ユーザー名" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
 
-    <table class="table">
-      <tbody>
-        <tr>
-          <td class="field">
-            <th><%= f.label :name %><br></th>
-            <td><%= f.text_field :name %></td>
-          </td>
-        </tr>
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        </div>
 
-        <tr>
-          <td class="field">
-            <th><%= f.label :email %><br /></th>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-        </tr>
+        <div class="form-group">
+          <%= f.label :password_confirmation, "パスワード（確認）" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
 
-        <tr>
-          <td class="field">
-            <th><%= f.label :password %>
-                <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> 文字以上)</em>
-                <% end %><br />
-            </th>
-            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-        </tr>
+        <div class="text-center">
+          <%= f.submit "新規登録", class: 'btn btn-success btn-block' %>
+        </div>
 
-        <tr>
-          <td class="field">
-            <th><%= f.label :"パスワード（確認 )" %><br /></th>
-            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-            <td></td>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="actions">
-            <td><%= f.submit "新規登録", class: 'btn btn-sm btn-success' %></td>
-          <td></td>
-        </tr>
-    </table>
-
-    <tfoot>
-        <tr>
-          <td>
-            ＊会員の方は<%= link_to "こちら", user_session_path %>からログインしてください。
-          </td>
-        </tr>
-    </tfoot>
+        <div class="text-center mt-3">
+          <p>＊会員の方は<%= link_to "こちら", user_session_path %>からログインしてください。</p>
+        </div>
 
       <% end %>
-       <!--%= render "public/shared/links" %>-->
     </div>
   </div>
 </div>
