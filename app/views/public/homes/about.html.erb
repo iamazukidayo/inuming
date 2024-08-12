@@ -1,14 +1,16 @@
 <div class = "container mt-5" >
   <div class = "row" >
     <div class = "col-12">
-       <div class = "text-center mb-5" >
-          <h5 class = "text-center mt-5">
-             <strong>「 犬限定</strong>のトリミングスタイル投稿サイトです。<br>
-            飼い主さんとトリマーさんがペットのトリミングスタイルを<br>
-            投稿、共有できます。情報交換にご利用ください。 <strong>」</strong>
-          </h5>
-
-          <h3 class = "text-center mt-5">
+      <h2 class = "text-center mb-5 mt-5" >
+        <i class="fa-solid fa-paw"></i> <strong>inumingへようこそ</strong > <i class="fa-solid fa-paw"></i><br>
+      </h2>
+      <div class="text-center">
+        <strong>犬限定</strong>のトリミングスタイル投稿サイトです。<br>
+          飼い主さんとトリマーさんが<br>
+          ペットのトリミングスタイルを投稿、共有できます。<br>
+          情報交換にご利用ください。
+      </div>
+          <h3 class = "text-center">
             <%= image_tag "tukaikata.png", style: 'width:280px; height:250px;' %>
           </h3>
           <div class="text-center mt-5">
@@ -39,14 +41,14 @@
             <%= image_tag "mypage.png", style: 'width:450; height:400;' %>
             <p>
               他のユーザーの場合は、フォローボタンが表示されます。<br>
-              お互いフォローしていると、DMをするボタンが表示され、DMすることができます。<br>
+              <strong>お互いフォローしていると、DMをするボタンが表示され、DMすることができます。</strong><br>
               カットの質問や、予約状況、情報交換でご利用ください。<br>
               DMの未読を防ぐために、上にあるメニューの通知から確認できます。
             </p>
           </div>
 
-          <div clss="text-center mt-5">
-             <%= link_to "登録して始めよう！", new_user_registration_path %>
+          <div class="text-center mt-5">
+             <%= link_to "登録して始めよう！", new_user_registration_path, class:"btn btn-lg btn-outline-success" %>
           </div>
         </div>
     </div>
