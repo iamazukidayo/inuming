@@ -48,7 +48,16 @@
           </div>
 
           <div class="text-center mt-5">
-             <%= link_to "登録して始めよう！", new_user_registration_path, class:"btn btn-lg btn-outline-success" %>
+            <%= image_tag "guest-setumei.png", style: 'width:450; height:400;' %>
+            <p class="mt-5">
+              上のメニューにある「ログアウト」をクリックしていただくと、ログアウトできます。
+            </p>
+          </div>
+          <div class="text-center mt-5">
+            <%= link_to "登録して始めよう！", new_user_registration_path, class:"btn btn-outline-success" %>
+          </div>
+          <div class="text-center mt-5">
+            <%= link_to "お試しはこちらをクリック(ゲストユーザーでログインされます)", users_guest_sign_in_path, method: :post, class:"btn btn-outline-info" %>
           </div>
         </div>
     </div>
