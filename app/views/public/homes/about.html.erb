@@ -10,56 +10,56 @@
           ペットのトリミングスタイルを投稿、共有できます。<br>
           情報交換にご利用ください。
       </div>
-          <h3 class = "text-center">
-            <%= image_tag "tukaikata.png", style: 'width:280px; height:250px;' %>
-          </h3>
-          <div class="text-center mt-5">
-            <%= image_tag "tukaikatanew.png", style: 'width:450; height:400;' %>
-            <p>登録/ログイン後は、マイページからプロフィール画像や自己紹介を入力できます。</p>
-          </div>
-          <div class="text-center mt-5">
-            <%= image_tag "tukaikatatoukou.png", style: 'width:450; height:400;' %>
-            <p>
-              タイトルには犬種を入力して、説明にはカット名やシャンプー名など入力します。<br>
-              写真は、横の画像を追加をクリックすると、何枚でも追加できます。
-            </p>
-          </div>
-          <div class="text-center mt-5">
-            <%= image_tag "itirann.png", style: 'width:450; height:400;' %>
-            <p>
-              いいねすることができ、マイページからいいねした投稿を一覧で見れるようになります。<br>
-              写真やタイトルをクリックすると、詳細画面が表示されます。
-          </div>
-          <div class="text-center mt-5">
-            <%= image_tag "shousai.png", style: 'width:450; height:400;' %>
-            <p>
-              このページで、コメントできます。コメントは自分が投稿したもののみ削除できます。<br>
-              投稿したユーザーの名前をクリックすると、そのユーザーのマイページが表示されます。
-            </p>
-          </div>
-          <div class="text-center mt-5">
-            <%= image_tag "mypage.png", style: 'width:450; height:400;' %>
-            <p>
-              他のユーザーの場合は、フォローボタンが表示されます。<br>
-              <strong>お互いフォローしていると、DMをするボタンが表示され、DMすることができます。</strong><br>
-              カットの質問や、予約状況、情報交換でご利用ください。<br>
-              DMの未読を防ぐために、上にあるメニューの通知から確認できます。
-            </p>
-          </div>
-
-          <div class="text-center mt-5">
-            <%= image_tag "guestsetumei.png", style: 'width:450; height:400;' %>
-            <p class="mt-5">
-              上のメニューにある「ログアウト」をクリックしていただくと、ログアウトできます。
-            </p>
-          </div>
-          <div class="text-center mt-5">
-            <%= link_to "登録して始めよう！", new_user_registration_path, class:"btn btn-outline-success" %>
-          </div>
-          <div class="text-center mt-5">
-            <%= link_to "お試しはこちらをクリック(ゲストユーザーでログインされます)", users_guest_sign_in_path, method: :post, class:"btn btn-outline-info" %>
-          </div>
+      <h3 class = "text-center">
+        <%= image_tag "tukaikata.png", style: 'width:280px; height:250px;' %>
+      </h3>
+      <div class="text-center mt-5">
+        <%= image_tag "tukaikatanew.png", style: 'width:450; height:400;' %>
+        <p>登録/ログイン後は、マイページからプロフィール画像や自己紹介を入力できます。</p>
+      </div>
+      <div class="text-center mt-5">
+        <%= image_tag "tukaikatatoukou.png", style: 'width:450; height:400;' %>
+        <p>
+          タイトルには犬種を入力して、説明にはカット名やシャンプー名など入力します。<br>
+          写真は、横の画像を追加をクリックすると、何枚でも追加できます。
+        </p>
         </div>
+        <div class="text-center mt-5">
+          <%= image_tag "itirann.png", style: 'width:450; height:400;' %>
+          <p>
+            いいねすることができ、マイページからいいねした投稿を一覧で見れるようになります。<br>
+            写真やタイトルをクリックすると、詳細画面が表示されます。
+        </div>
+        <div class="text-center mt-5">
+          <%= image_tag "shousai.png", style: 'width:450; height:400;' %>
+          <p>
+            このページで、コメントできます。コメントは自分が投稿したもののみ削除できます。<br>
+            投稿したユーザーの名前をクリックすると、そのユーザーのマイページが表示されます。
+          </p>
+        </div>
+        <div class="text-center mt-5">
+          <%= image_tag "mypage.png", style: 'width:450; height:400;' %>
+          <p>
+            他のユーザーの場合は、フォローボタンが表示されます。<br>
+            <strong>お互いフォローしていると、DMをするボタンが表示され、DMすることができます。</strong><br>
+            カットの質問や、予約状況、情報交換でご利用ください。<br>
+            DMの未読を防ぐために、上にあるメニューの通知から確認できます。
+          </p>
+        </div>
+
+        <div class="text-center mt-5">
+          <%= image_tag "guestsetumei.png", style: 'width:450; height:400;' %>
+          <p class="mt-5">
+            上のメニューにある「ログアウト」をクリックしていただくと、ログアウトできます。
+          </p>
+        </div>
+        <div class="text-center mt-5">
+          <%= link_to "登録して始めよう！", new_user_registration_path, class:"btn btn-outline-success" %>
+        </div>
+        <div class="text-center mt-5">
+          <%= link_to "お試しはこちらをクリック(ゲストユーザーでログインされます)", users_guest_sign_in_path, method: :post, class:"btn btn-outline-info" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
