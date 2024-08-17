@@ -1,26 +1,25 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="text-center mt-5">
-        <%= image_tag "questionhito.png", class: 'img-fluid', alt: 'Question Image' %>
-      </div>
-
-      <div class="faq-item mb-4 p-4 bg-light rounded shadow-sm">
-        <h4 class="font-weight-bold">
-          Q: 退会したい時はどうしたらいいですか？
-        </h4>
-        <p class="text-muted">
-          A: 自身のマイページから、編集ボタンをクリックしていただくと、退会ボタンが表示されます。<br>
-             そちらから、退会手続きを行ってください。（退会されたアカウントはログインすることができなくなります。)
-        </p>
-      </div>
-      <div class="faq-item mb-4 p-4 bg-light rounded shadow-sm">
-        <h4 class="font-weight-bold">
-          Q: よくある質問で解決しない場合には、どこから質問すれば良いですか？
-        </h4>
-        <p class="text-muted">
-          A: よくあるご質問で解決しない場合には、123456789@xxxx.comにメールにてお問い合わせください。
-        </p>
+<div class="accordion" id="collapse-accordion">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="text-center mt-5">
+          <%= image_tag "questionhito.png", class: 'img-fluid', alt: 'Question Image' %>
+        </div>
+        <div class="card mb-2">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-accordion-1">
+                Q : 退会したい時はどうしたらいいですか？
+              </button>
+            </h5>
+          </div>
+          <div id="collapse-accordion-1" class="collapse" data-parent="#collapse-accordion">
+            <div class="card-body">
+              A : ご自身のマイページから、編集ボタンをクリックしていただくと、退会ボタンが表示されます。<br>
+                  そちらから、退会手続きを行ってください。(退会されたアカウントはログインすることができなくなります。)
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
