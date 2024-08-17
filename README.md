@@ -31,7 +31,6 @@
 ​
 ## 設計書
 ### ER図
-![er](https://github.com/user-attachments/assets/44ba0f46-608f-48aa-84a7-8040d24cd3c7)
 ![IMG_5890](https://github.com/user-attachments/assets/12348acf-8da6-4356-82ec-459f23f7e194)
 <!-- 【補足説明】 -->
 <!-- - テーマ提出時点では不要です。 -->
