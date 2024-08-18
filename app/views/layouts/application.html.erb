@@ -180,15 +180,15 @@
             <i class="fa-solid fa-scissors fa-2xl"></i>
           </div>
         </div>
-        <div class="col-12 d-flex justify-content-center">
-          <%= link_to 'よくあるご質問はこちら', faqs_path %>
+        <div class="col-12 d-flex justify-content-center mt-3">
+          <%= link_to 'よくあるご質問はこちら', faqs_path, class: "btn btn-outline-info"%>
         </div>
-          <div class="col-12 d-flex justify-content-end">
-            <%= link_to admin_session_path do %>
-              <%= image_tag 'home.png', size: '170x140' %>
-            <% end %>
-          </div>
+        <div class="col-12 d-flex justify-content-end">
+          <%= link_to admin_session_path do %>
+            <%= image_tag 'home.png', size: '170x140' %>
+          <% end %>
         </div>
+      </div>
     </footer>
   </body>
 </html>
