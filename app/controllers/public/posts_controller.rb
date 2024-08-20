@@ -1,5 +1,8 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def new
     @post = Post.new
   end
@@ -56,4 +59,15 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, images: [])
   end
+  
+  def set_post
+    @post = Post.find(params[:id])
+  end 
+  
+  def correct_user
+    unless @post.user == current_user
+      flash[:post_edit_alert] = "他のユーザーの投稿は編集できません"
+      redirect_to posts_path
+    end 
+  end 
 end

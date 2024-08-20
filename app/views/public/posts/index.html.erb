@@ -2,7 +2,7 @@
 
   <h2>＊　投稿一覧　＊</h2>
   <div class="container">
-    
+
     <div class="sort-options">
       <%= link_to "新着順", posts_path(sort: 'new') %> |
       <%= link_to "いいね多い順", posts_path(sort: 'likes') %>
@@ -19,6 +19,10 @@
     <% elsif flash[:post_destroy] %>
       <div class="alert alert-danger">
         <%= flash[:post_destroy] %>
+      </div>
+    <% elsif flash[:post_edit_alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:post_edit_alert] %>
       </div>
     <% end %>
 
