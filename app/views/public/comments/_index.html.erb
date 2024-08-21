@@ -5,7 +5,7 @@
       <h6 class="mt-0"><%= comment.user.name %> <small class="text-muted"><%= comment.created_at.strftime('%Y/%m/%d') %></small></h6>
       <%= comment.comment %>
       <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn btn-danger btn-sm ml-2" %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn btn-danger btn-sm ml-2", data: { confirm: "削除しますか？" }%>
       <% end %>
     </div>
   </div>
