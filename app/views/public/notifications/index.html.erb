@@ -9,6 +9,7 @@
           <% @notifications.each do |notification| %>
         <tr>
             <td><i class="fa-regular fa-square-check"></i> <%= link_to notification.message.message, room_path(notification.message.room) %></td>
+            <td><%= time_ago_in_words(notification.created_at) %>前</td>
             <td><%= button_to "マークを既読にする", mark_as_read_notification_path(notification), method: :patch %></td>
           <% end %>
         </tr>
