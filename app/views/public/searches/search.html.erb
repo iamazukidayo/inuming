@@ -1,8 +1,8 @@
 <div class="container px-5 px-sm-0 mt-5">
   <div class='col-md-10 offset-md-1'>
     <% if @range == "User" %>
-      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> 『　<%= @word %>　』</h2>
-      <div class="row">
+      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> "<%= @word %>"</h2>
+      <div class="row mt-5">
         <% @users.each do |user| %>
           <div class="col-md-3 mb-4">
             <div class="card h-100">
