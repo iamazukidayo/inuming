@@ -18,8 +18,8 @@
         <% end %>
       </div>
     <% else %>
-      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> 『　<%= @word %>　』</h2>
-      <div class="row">
+      <h2>検索結果<i class="fa-solid fa-magnifying-glass"></i> "<%= @word %>"</h2>
+      <div class="row mt-5">
         <% @posts.each do |post| %>
           <div class="col-md-3 mb-4">
             <div class = "card h-100">
