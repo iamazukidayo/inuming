@@ -16,7 +16,7 @@
 
  <div class="row">
   <div class="mx-auto offset-lg-2 mt-5">
-    <h3>プロフィール編集</h3>
+    <h3 class="text-center">プロフィール編集</h3>
       <%= form_with model: @user do |f| %>
       <table class="table">
         <tbody>
@@ -25,6 +25,7 @@
                 <td><label for="user_image">写真</label></td>
                 <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
               </td>
+          </tr>
           <tr>
             <td class="form-group">
               <td><lavel for="user_name">名前</lavel></td>
