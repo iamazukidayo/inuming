@@ -1,54 +1,51 @@
 <div class="container mt-5">
-
   <div class="md-6 offset-lg-2 mt-5 text-center">
-      <% if @user.errors.any? %>
-        <div class="alert alert-danger">
-          <%= @user.errors.count %>件のエラーが発生しました
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        <%= @user.errors.count %>件のエラーが発生しました
           <ul>
             <% @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
           </ul>
-        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="mx-auto offset-lg-2 mt-5">
+      <h3 class="text-center">プロフィール編集</h3>
+      <%= form_with model: @user do |f| %>
+        <table class="table">
+          <tbody>
+            <tr>
+                <td class="form-group">
+                  <td><label for="user_image">写真</label></td>
+                  <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
+                </td>
+            </tr>
+            <tr>
+              <td class="form-group">
+                <td><lavel for="user_name">名前</lavel></td>
+                <td><%= f.text_field :name, autofocus: true, id:"user_name", placeholder:"name" %></td>
+              </td>
+            </tr>
+
+            </tr>
+            <tr>
+              <td class="form-group">
+                <td><label for="user_introduction">自己紹介</label></td>
+                 <td><%= f.text_area :introduction, autofocus: true, id:"user_introduction", placeholder:"自己紹介" %></td>
+              </td>
+            </tr>
+            <tr>
+              <td class="actions">
+                <td><%= link_to "退会", check_users_path, class: 'btn btn-danger' %></td>
+                 <td><%= f.submit "保存", class: 'btn btn-success' %></td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
     </div>
-
-
- <div class="row">
-  <div class="mx-auto offset-lg-2 mt-5">
-    <h3 class="text-center">プロフィール編集</h3>
-      <%= form_with model: @user do |f| %>
-      <table class="table">
-        <tbody>
-          <tr>
-              <td class="form-group">
-                <td><label for="user_image">写真</label></td>
-                <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
-              </td>
-          </tr>
-          <tr>
-            <td class="form-group">
-              <td><lavel for="user_name">名前</lavel></td>
-              <td><%= f.text_field :name, autofocus: true, id:"user_name", placeholder:"name" %></td>
-            </td>
-          </tr>
-
-          </tr>
-          <tr>
-            <td class="form-group">
-              <td><label for="user_introduction">自己紹介</label></td>
-               <td><%= f.text_area :introduction, autofocus: true, id:"user_introduction", placeholder:"自己紹介" %></td>
-            </td>
-          </tr>
-          <tr>
-            <td class="actions">
-              <td><%= link_to "退会", check_users_path, class: 'btn btn-danger' %></td>
-               <td><%= f.submit "保存", class: 'btn btn-success' %></td>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
-   </div>
   </div>
 </div>
